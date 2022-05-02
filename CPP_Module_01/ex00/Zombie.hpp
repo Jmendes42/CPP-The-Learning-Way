@@ -9,19 +9,13 @@ class Zombie
 {
     std::string name;
     public:
-        Zombie(std::string name)
-        {
-            this->name = name;
-        }
-        ~Zombie()
-        {
-            std::cout << name << ": Was destroyed" << std::endl;
-        }
+        Zombie(std::string name);
+        ~Zombie();
         void    announce(void);
+        static Zombie *newZombie(std::string name);
+        static void randomChump(std::string name);
         
 };
 
-Zombie *newZombie(std::string name);
-void randomChump(std::string name);
 
 #endif

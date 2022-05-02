@@ -14,19 +14,21 @@ int     main(void)
     while (memory != "Zombie" && memory != "Chump")
         std::getline(std::cin, memory);
     if (memory == "Chump")
-        randomChump(name);
+        Zombie::randomChump(name);
     if (memory == "Zombie")
     {
         std::string action;
 
-        _zombie = newZombie(name);
+        _zombie = Zombie::newZombie(name);
         while (action != "Destroy")
         {
             std::cout << "Choose action:" << std::endl;
-            std::cout << "1 -> Announce\n 2 -> Destroy" << std::endl;
+            std::cout << "1 -> Announce\n2 -> Destroy" << std::endl;
+            std::cin >> action;
             if (action == "Announce")
                 _zombie->announce();
-            //else if(action == "destroy")
+            else if(action == "Destroy")
+                delete _zombie;
         }
     }
     return (0);
