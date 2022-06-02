@@ -1,22 +1,19 @@
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-    ClapTrap a;
-    ClapTrap b("Carla");
-    ClapTrap c("Carlos");
+    ClapTrap a("Carla");
+    ScavTrap b("Carlos");
 
-    b.takeDamage(10);
+    a.attack("random");
+    b.takeDamage(9);
+    b.beRepaired(11);
     b.attack("random");
-    c.takeDamage(9);
-    c.beRepaired(9);
-    c.attack("random");
-    c.attack("random");
-    c.attack("random");
-    c.attack("random");
-    c.attack("random");
-    c.attack("random");
-    c.attack("random");
-    c.attack("random");
-    c.attack("random");
+    b.get();
+
+    a = b;
+
+    a.get();
+    b.guardGate();
+    return (0);
 }

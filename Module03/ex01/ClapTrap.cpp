@@ -19,6 +19,17 @@ ClapTrap::~ClapTrap()
 }
 
 
+//OVERLOADS
+void    ClapTrap::operator = (ClapTrap &trap)
+{
+    _name = trap._name;
+    _damage = trap._damage;
+    _energy = trap._energy;
+    _hitPoints = trap._hitPoints;
+
+    std::cout << "Copy assignment operator called" << std::endl;
+}
+
 //PUBLIC FUNCTIONS
 void    ClapTrap::takeDamage(unsigned int amount)
 {

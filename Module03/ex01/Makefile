@@ -3,7 +3,7 @@ FLAGS = -Wall -Wextra -Werror -g
 RM = rm -f
 
 NAME = ClapTrap
-SRCS = main.cpp ClapTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all = $(NAME)
