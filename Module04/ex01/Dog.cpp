@@ -9,10 +9,11 @@ Dog::Dog()
     _type = "Dog";
 }
 
-Dog::Dog(std::string type)
+Dog::Dog(const Dog &dog)
 {
-    _type = type;
-    std::cout << "Copy Dog constructor of type " << type << std::endl;
+    _brain = new Brain();
+    *_brain = *dog._brain;
+    std::cout << "Copy Dog constructor" << std::endl;
 }
 
 Dog::~Dog()
@@ -25,4 +26,12 @@ Dog::~Dog()
 void            Dog::makeSound() const
 {
     std::cout << "Barking" << std::endl;
+}
+
+void    Dog::operator = (const Dog &dog)
+{
+    _brain = new Brain();
+    *_brain = *dog._brain;
+    _type = dog.getType();
+    std::cout << "Dog assignement operator" << std::endl;
 }

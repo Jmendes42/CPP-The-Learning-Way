@@ -4,6 +4,7 @@
 #include "iostream"
 #include "Brain.hpp"
 
+
 class Animal
 {
     protected:
@@ -12,9 +13,9 @@ class Animal
     public:
         Animal();
         virtual ~Animal();
-        Animal(std::string type);
+        Animal(const Animal &animal);
 
-        void        operator = (Animal &animal);
+        Animal*        operator = (const Animal &animal);
 
         virtual std::string     getType() const;
         virtual void            makeSound() const;

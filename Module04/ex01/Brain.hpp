@@ -9,7 +9,10 @@ class Brain
     
     public:
         Brain();
+        Brain(const Brain &brain);
         ~Brain();
+
+        void operator = (const Brain &brain);
 };
 
 #endif
