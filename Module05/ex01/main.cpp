@@ -1,57 +1,42 @@
-#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main (void)
 {
-    Bureaucrat j("Joao", 10);
-    Bureaucrat p("Pedro", 100);
-
-    std::cout << j;
-    std::cout << p;
-
-    std::cout << std::endl;
-
-    try 
-    {
-        Bureaucrat a("Alexandre", 0);
-    }
-
-    catch(std::exception &exception)
-    {
-        std::cout << exception.what() << std::endl;
-    }
-
-    std::cout << std::endl;
+    Bureaucrat  joao("Joao", 10);
+    Bureaucrat  pedro("Pedro", 100);
+    Form        f0;                               
+    Form        f1("f1", 50, 25);
+    Form        f2("f2", 75, 34);
+    Form        f3(f1);
 
     try
     {
-        j.incrementGrade(5);
-        std::cout << j;
-        j.incrementGrade(5);
+        Form    f4("f4", 0, 30);
     }
-    catch(std::exception &exception)
+    catch(const std::exception &exception)
     {
         std::cout << exception.what() << std::endl;
     }
 
-    std::cout << std::endl;
-
+    std::cout << "-----------------------------" << std::endl;
+    
     try
     {
-        p.decrementGrade(30);
-        std::cout << p;
-        p.decrementGrade(30);
+        std::cout << f1;
+        f1.beSigned(pedro);
     }
-    catch(std::exception &exception)
+    catch(const std::exception &exception)
     {
         std::cout << exception.what() << std::endl;
     }
 
-    Bureaucrat f("Fabio", 134);
-    Bureaucrat a("Alvararo", 1);
+    std::cout << "-----------------------------" << std::endl;
 
-    a = f;
-
-    std::cout << a;
+    f1.beSigned(joao);
+    std::cout << f1;
+    std::cout << f2;
+    f2 = f1;
+    std::cout << f2;
 
     return 0;
 }

@@ -11,18 +11,18 @@ Form::Form(std::string name, int gradeSign, int gradExec):
     _name(name), _gradeSign(gradeSign), _gradeExec(gradExec)
 {
     if (gradeSign < 1)
-        throw(GradeTooHighException());
+        throw(FormGradeTooHighException());
     if (gradeSign > 150)
-        throw(GradeTooLowException());
+        throw(FormGradeTooLowException());
     if (gradExec < 1)
-        throw(GradeTooHighException());
+        throw(FormGradeTooHighException());
     if (gradExec > 150)
-        throw(GradeTooLowException());
+        throw(FormGradeTooLowException());
     _status = false;
     std::cout << "Copy Form constructor called" << std::endl;
 }
 
-Form::Form(const Form &form): 
+Form::Form(Form &form): 
     _name(form._name), _gradeSign(form._gradeSign), _gradeExec(form._gradeExec)
 {
     _status = false;
@@ -40,7 +40,7 @@ void    Form::beSigned(Bureaucrat &bureaucrat)
     if (bureaucrat.getGrade() >= _gradeSign)
     {
         bureaucrat.signForm(_status, _name);
-        throw(GradeTooLowException());
+        throw(FormGradeTooLowException());
     }
     else
     {
@@ -55,23 +55,29 @@ const std::string   Form::getName()
     return _name;
 }
 
-bool                Form::getStatus()
+std::string                Form::getStatus()
 {
-    return _status;
+    std::string status;
+
+    if (_status == false)
+        status = "False";
+    else
+        status = "True";
+    return status;
 }
 
-const int           Form::getGradeSign()
+int           Form::getGradeSign()
 {
     return _gradeSign;
 }
 
-const int           Form::getGradeExec()
+int           Form::getGradeExec()
 {
     return _gradeExec;
 }
 
 //OVERLOADS
-void    Form::operator = (const Form &form)
+void    Form::operator = (Form &form)
 {
     _status = form._status;
 }
