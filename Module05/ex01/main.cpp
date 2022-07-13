@@ -47,11 +47,7 @@ int main (void)
     }
 
     Bureaucrat f("Fabio", 134);
-    Bureaucrat a("Alvaro", 10);
-
-    f.decrementGrade(16);
-
-    std::cout << f;
+    Bureaucrat a("Alvararo", 1);
 
     a = f;
 

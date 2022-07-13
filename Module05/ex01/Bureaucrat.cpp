@@ -18,13 +18,6 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
     std::cout << "Copy Bureaucrat constructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &bureaucrat)
-{
-    *this = bureaucrat;
-    std::cout << "Copy Bureaucrat constructor called" << std::endl;
-}
-
-
 
 Bureaucrat::~Bureaucrat()
 {
@@ -57,6 +50,15 @@ void    Bureaucrat::decrementGrade(int i)
     _grade += i;
 }
 
+void    Bureaucrat::signForm(bool status, std::string name)
+{
+    if (status == false)
+        std::cout << "Bureaucrat " << _name << ", couldn't sign form " << 
+            name << " because of insuficient grade" << std::endl;
+    else
+        std::cout << "Bureaucrat " << _name << ", signed form " << name << std::endl;
+}
+
 //OVERLOADS
 void    Bureaucrat::operator = (Bureaucrat &bureaucrat)
 {
@@ -68,4 +70,3 @@ std::ostream         &operator << (std::ostream &output, Bureaucrat &bureaucrat)
     output << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade() << std::endl;
     return output; 
 }
-
