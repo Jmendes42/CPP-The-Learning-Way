@@ -13,7 +13,6 @@ class Intern
         Intern(std::string name);
         ~Intern();
         Form    *makeForm(std::string name, std::string target);
-        //Form    *presidential(std::string target);
 };
 
 Form*   robot(std::string target);
