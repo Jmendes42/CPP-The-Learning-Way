@@ -27,6 +27,13 @@ Form*    Intern::makeForm(std::string name, std::string target)
     return make(target);
 }
 
+//OVERLOADS
+void    Intern::operator = (Intern intern)
+{
+    *this = intern;
+}
+
+//COMPLEMENTAR
 Form*   robot(std::string target)
 {
     Form *form = new RobotomyRequestForm(target);

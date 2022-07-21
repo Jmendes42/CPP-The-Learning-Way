@@ -12,6 +12,9 @@ class Intern
         Intern();
         Intern(std::string name);
         ~Intern();
+
+        void    operator = (Intern intern);
+        
         Form    *makeForm(std::string name, std::string target);
 };
 
