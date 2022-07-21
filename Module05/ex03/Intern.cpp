@@ -6,13 +6,44 @@ Intern::Intern()
     std::cout << "Default Intern constructor" << std::endl;
 }
 
-//METHODS
-Form*    Intern::makeForm(std::string name, std::string target, Form*(*make)(std::string))
+Intern::Intern(std::string name)
 {
-    (name.compare("PresidentialPardonForm"))(Form *(*make)(std::string) = );
+    std::cout << "Copy constructor for Intern " << name << std::endl;
 }
 
-Form*   Intern::presidential(std::string target)
+Intern::~Intern()
 {
-    return PresidentialPardonForm(target);
+    std::cout << "Default Intern destructor" << std::endl;
+}
+
+//METHODS
+Form*    Intern::makeForm(std::string name, std::string target)
+{
+    Form *(*make)(std::string);
+
+    (!name.compare("RobotomyRequestForm") && (make = robot));
+    (!name.compare("ShrubberyCreationForm") && (make = shrubbery));
+    (!name.compare("PresidentialPardonForm") && (make = presidential));
+    return make(target);
+}
+
+Form*   robot(std::string target)
+{
+    Form *form = new RobotomyRequestForm(target);
+    
+    return form;
+}
+
+Form*   shrubbery(std::string target)
+{
+    Form *form = new ShrubberyCreationForm(target);
+    
+    return form;
+}
+
+Form*   presidential(std::string target)
+{
+    Form *form = new PresidentialPardonForm(target);
+    
+    return form;
 }
