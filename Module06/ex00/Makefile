@@ -1,9 +1,9 @@
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g -std=c++98
 RM = rm -f
 
-NAME = Animal
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
+NAME = Convert
+SRCS = main.cpp 
 OBJS = $(SRCS:.cpp=.o)
 
 all = $(NAME)

@@ -12,7 +12,7 @@ class Brain
         Brain(const Brain &brain);
         ~Brain();
 
-        void operator = (const Brain &brain);
+        Brain   &operator = (const Brain &brain);
 };
 
 #endif

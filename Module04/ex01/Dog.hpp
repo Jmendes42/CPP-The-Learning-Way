@@ -1,6 +1,7 @@
 #ifndef DOG_H
 #define DOG_H
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog: public Animal
 {
@@ -11,7 +12,7 @@ class Dog: public Animal
         ~Dog();
         Dog(const Dog &dog);
 
-        void    operator = (const Dog &dog);
+        Dog     &operator = (const Dog &animal);
 
         void    makeSound() const;
 };

@@ -10,6 +10,7 @@ Dog::Dog()
 }
 
 Dog::Dog(const Dog &dog)
+:Animal()
 {
     _brain = new Brain();
     *_brain = *dog._brain;
@@ -28,10 +29,11 @@ void            Dog::makeSound() const
     std::cout << "Barking" << std::endl;
 }
 
-void    Dog::operator = (const Dog &dog)
+Dog    &Dog::operator = (const Dog &animal)
 {
-    _brain = new Brain();
-    *_brain = *dog._brain;
-    _type = dog.getType();
+    delete _brain;
+    *_brain = *animal._brain;
+    _type = animal._type;
     std::cout << "Dog assignement operator" << std::endl;
+    return *this;
 }

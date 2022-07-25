@@ -31,7 +31,9 @@ void            Animal::makeSound() const
 }
 
 //OPERATOR
-Animal*    Animal::operator = (const Animal &animal)
+Animal    &Animal::operator = (const Animal &animal)
 {
-    return (new Animal(animal));
+    _type = animal._type;
+    std::cout << "Animal assignement operator" << std::endl;
+    return *this;
 }

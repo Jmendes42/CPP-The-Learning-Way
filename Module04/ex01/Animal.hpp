@@ -2,8 +2,6 @@
 #define ANIMAL_H
 
 #include "iostream"
-#include "Brain.hpp"
-
 
 class Animal
 {
@@ -15,7 +13,7 @@ class Animal
         virtual ~Animal();
         Animal(const Animal &animal);
 
-        Animal*        operator = (const Animal &animal);
+        Animal    &operator = (const Animal &animal);
 
         virtual std::string     getType() const;
         virtual void            makeSound() const;

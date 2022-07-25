@@ -10,9 +10,11 @@ Cat::Cat()
 }
 
 Cat::Cat(const Cat &cat)
+:Animal()
 {
     _brain = new Brain();
     *_brain = *cat._brain;
+    _type = cat._type;
     std::cout << "Copy Cat constructor" << std::endl;
 }
 
@@ -29,10 +31,11 @@ void            Cat::makeSound() const
 }
 
 //OPERATOR
-void    Cat::operator = (const Cat &cat)
+Cat    &Cat::operator = (const Cat &animal)
 {
-    _brain = new Brain();
-    *_brain = *cat._brain;
-    _type = cat.getType();
+    *_brain = *animal._brain;
+    _type = animal._type;
     std::cout << "Cat assignement operator" << std::endl;
+    
+    return *this;
 }
