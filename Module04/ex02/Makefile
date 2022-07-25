@@ -1,0 +1,22 @@
+CC = c++
+FLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+RM = rm -f
+
+NAME = Animal
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongCat.cpp WrongAnimal.cpp Brain.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+all = $(NAME)
+
+$(NAME):
+		$(CC) $(SRCS) $(FLAGS) -o $(NAME)
+
+clean:
+		$(RM) $(OBJS)
+
+fclean: clean
+		$(RM) $(NAME)
+
+re: fclean $(NAME)
+
+.PHONY: all clean fclean re
