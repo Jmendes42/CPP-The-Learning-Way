@@ -1,9 +1,9 @@
 CC = c++
-FLAGS = -Wall -Wextra -Werror -g -std=c++98
+FLAGS = -Wall -Wextra -Werror -fsanitize=address -std=c++98
 RM = rm -f
 
 NAME = Convert
-SRCS = main.cpp Convert.cpp
+SRCS = main.cpp Data.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all = $(NAME)
