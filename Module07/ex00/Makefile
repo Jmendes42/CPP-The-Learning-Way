@@ -2,8 +2,8 @@ CC = c++
 FLAGS = -Wall -Wextra -Werror -fsanitize=address -std=c++98
 RM = rm -f
 
-NAME = Data
-SRCS = main.cpp Data.cpp
+NAME = Templates
+SRCS = main.cpp 
 OBJS = $(SRCS:.cpp=.o)
 
 all = $(NAME)
