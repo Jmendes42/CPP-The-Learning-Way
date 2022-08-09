@@ -4,6 +4,18 @@
 #include <iostream>
 #include <exception>
 
+
+
+class Test
+{
+    int i;
+    public:
+        int getI()
+        {
+            return i;
+        }
+};
+
 template<typename T>
 
 class Array
@@ -27,7 +39,8 @@ class Array
 template<typename T>
 Array<T>::Array()
 {
-    _elements = new T[1];
+    _elements = new T[0];
+    _size = 0;
     std::cout << "Default Array constructor" << std::endl;
 }
 
@@ -46,8 +59,6 @@ Array<T>::Array(unsigned int n)
 {
     _elements = new T[n];
     _size = (int)n;
-    for (int i = 0; i < _size; i++)
-        _elements[i] = 0;
     std::cout << "Copy Array constructor" << std::endl;
 }
 
@@ -74,9 +85,10 @@ Array<T>   &Array<T>::operator = (Array<T> &array)
 template<typename T>
 T   &Array<T>::operator [] (int index)
 {
-    if (index >= _size || index < 0)
+    if (index >= _size || index < 0 || !_elements)
         throw(std::exception());
-    return (_elements[index]);
+    else
+        return (_elements[index]);
 }
 
 //GETTERS
