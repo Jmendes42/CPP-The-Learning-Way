@@ -1,3 +1,3 @@
 # Module 06
 
-Casts.
+Type casts.
